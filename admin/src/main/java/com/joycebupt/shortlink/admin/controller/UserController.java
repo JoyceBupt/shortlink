@@ -1,6 +1,7 @@
 package com.joycebupt.shortlink.admin.controller;
 
 import com.joycebupt.shortlink.admin.common.convention.result.Result;
+import com.joycebupt.shortlink.admin.common.convention.result.Results;
 import com.joycebupt.shortlink.admin.common.enums.UserErrorCodeEnum;
 import com.joycebupt.shortlink.admin.dto.resp.UserRespDTO;
 import com.joycebupt.shortlink.admin.service.UserService;
@@ -28,7 +29,7 @@ public class UserController {
             return new Result<UserRespDTO>().setCode(UserErrorCodeEnum.USER_NULL.code())
                     .setMessage(UserErrorCodeEnum.USER_NULL.message());
         } else {
-            return new Result<UserRespDTO>().setCode("0").setData(result);
+            return Results.success(result);
         }
     }
 }
