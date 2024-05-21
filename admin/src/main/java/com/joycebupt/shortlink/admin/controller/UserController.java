@@ -1,8 +1,9 @@
 package com.joycebupt.shortlink.admin.controller;
 
+import cn.hutool.core.bean.BeanUtil;
 import com.joycebupt.shortlink.admin.common.convention.result.Result;
 import com.joycebupt.shortlink.admin.common.convention.result.Results;
-import com.joycebupt.shortlink.admin.common.enums.UserErrorCodeEnum;
+import com.joycebupt.shortlink.admin.dto.resp.UserActualRespDTO;
 import com.joycebupt.shortlink.admin.dto.resp.UserRespDTO;
 import com.joycebupt.shortlink.admin.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -24,12 +25,11 @@ public class UserController {
      */
     @GetMapping("/api/shortlink/v1/user/{username}")
     public Result<UserRespDTO> getUserInfo(@PathVariable("username") String username) {
-        UserRespDTO result = userService.getUserByUsername(username);
-        if (result == null) {
-            return new Result<UserRespDTO>().setCode(UserErrorCodeEnum.USER_NULL.code())
-                    .setMessage(UserErrorCodeEnum.USER_NULL.message());
-        } else {
-            return Results.success(result);
-        }
+        return Results.success(userService.getUserByUsername(username));
+    }
+
+    @GetMapping("/api/shortlink/v1/actual/user/{username}")
+    public Result<UserActualRespDTO> getActualUserInfo(@PathVariable("username") String username) {
+        return Results.success(BeanUtil.toBean(userService.getUserByUsername(username), UserActualRespDTO.class));
     }
 }
