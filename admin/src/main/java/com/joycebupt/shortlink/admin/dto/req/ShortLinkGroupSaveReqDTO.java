@@ -15,47 +15,18 @@
  * limitations under the License.
  */
 
-package com.joycebupt.shortlink.admin.dao.entity;
+package com.joycebupt.shortlink.admin.dto.req;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.joycebupt.shortlink.admin.common.database.BaseDO;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
- * 短链接分组实体
+ * 短链接分组创建参数
  */
 @Data
-@TableName("t_group")
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class GroupDO extends BaseDO {
+public class ShortLinkGroupSaveReqDTO {
 
     /**
-     * id
-     */
-    private Long id;
-
-    /**
-     * 分组标识
-     */
-    private String gid;
-
-    /**
-     * 分组名称
+     * 分组名
      */
     private String name;
-
-    /**
-     * 创建分组用户名
-     */
-    private String username;
-
-//    /**
-//     * 分组排序
-//     */
-//    private Integer sortOrder;
 }
