@@ -4,6 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import com.joycebupt.shortlink.admin.common.convention.result.Result;
 import com.joycebupt.shortlink.admin.common.convention.result.Results;
 import com.joycebupt.shortlink.admin.dto.req.UserRegisterReqDTO;
+import com.joycebupt.shortlink.admin.dto.req.UserUpdateReqDTO;
 import com.joycebupt.shortlink.admin.dto.resp.UserActualRespDTO;
 import com.joycebupt.shortlink.admin.dto.resp.UserRespDTO;
 import com.joycebupt.shortlink.admin.service.UserService;
@@ -49,6 +50,15 @@ public class UserController {
     @PostMapping("/api/short-link/v1/user")
     public Result<Void> register(@RequestBody UserRegisterReqDTO requestParam) {
         userService.register(requestParam);
+        return Results.success();
+    }
+
+    /**
+     * 更新用户信息
+     */
+    @PutMapping("/api/short-link/v1/user")
+    public Result<Void> updateUser(@RequestBody UserUpdateReqDTO requestParam) {
+        userService.updateUser(requestParam);
         return Results.success();
     }
 }
