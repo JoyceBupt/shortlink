@@ -5,7 +5,7 @@ import com.joycebupt.shortlink.admin.common.serialize.PhoneDesensitizationSerial
 import lombok.Data;
 
 /**
- * 用户返回参数相应
+ * 用户返回参数响应
  */
 @Data
 public class UserRespDTO {

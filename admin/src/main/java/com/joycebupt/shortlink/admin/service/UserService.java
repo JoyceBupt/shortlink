@@ -2,8 +2,10 @@ package com.joycebupt.shortlink.admin.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.joycebupt.shortlink.admin.dao.entity.UserDO;
+import com.joycebupt.shortlink.admin.dto.req.UserLoginReqDTO;
 import com.joycebupt.shortlink.admin.dto.req.UserRegisterReqDTO;
 import com.joycebupt.shortlink.admin.dto.req.UserUpdateReqDTO;
+import com.joycebupt.shortlink.admin.dto.resp.UserLoginRespDTO;
 import com.joycebupt.shortlink.admin.dto.resp.UserRespDTO;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -40,4 +42,21 @@ public interface UserService extends IService<UserDO> {
      * @param requestParam 更新用户请求参数
      */
     void updateUser(@RequestBody UserUpdateReqDTO requestParam);
+
+    /**
+     * 用户登录
+     *
+     * @param requestParam 登录请求参数
+     * @return 用户登录返回参数 Token
+     */
+    UserLoginRespDTO login(UserLoginReqDTO requestParam);
+
+    /**
+     * 检查用户名是否登录
+     *
+     * @param username 用户名
+     * @param token    用户Token
+     * @return 登录返回 True，否则返回 False
+     */
+    Boolean checkLogin(String username, String token);
 }
