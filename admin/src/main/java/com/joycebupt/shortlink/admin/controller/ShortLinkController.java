@@ -2,7 +2,7 @@ package com.joycebupt.shortlink.admin.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.joycebupt.shortlink.admin.common.convention.result.Result;
-import com.joycebupt.shortlink.admin.remote.dto.ShortLinkRemoteService;
+import com.joycebupt.shortlink.admin.remote.ShortLinkRemoteService;
 import com.joycebupt.shortlink.admin.remote.dto.req.ShortLinkCreateReqDTO;
 import com.joycebupt.shortlink.admin.remote.dto.req.ShortLinkPageReqDTO;
 import com.joycebupt.shortlink.admin.remote.dto.resp.ShortLinkCreateRespDTO;
